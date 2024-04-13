@@ -11,18 +11,17 @@ const cell_clicked = (id) => {
 
 const init_table = () => {
     let index = 0;
-    const table = document.querySelector("#content-table");
+    const table = document.querySelector(".content-table");
 
     for (let i = 0; i < 3; i++) {
         table[i] = new Array(3);
 
-        const row = document.createElement("tr");
-        table.appendChild(row);
         for (let j = 0; j < 3; j++) {
             const current_index = index;
 
-            const cell = document.createElement("td");
-            row.appendChild(cell);
+            const cell = document.createElement("div");
+            table.appendChild(cell);
+
             cell.setAttribute("class", "cell");
             cell.setAttribute("id", `cell-${index}`);
 

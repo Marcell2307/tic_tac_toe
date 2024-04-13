@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Glagolitic&display=swap");
 
 body {
-    --primary-color: rgb(57, 255, 20);
+    --primary-color: white;
     --secondary-color: rgb(30, 30, 30);
 
     margin: 0;
@@ -18,7 +18,8 @@ body {
 }
 
 p {
-    width: 50%;
+    width: 25%;
+    text-align: center;
 }
 
 .cell {
@@ -26,5 +27,106 @@ p {
     width: 100px;
     height: 100px;
     border-radius: 20px;
-    margin: 10px;
+    transition: 100ms linear;
+}
+
+.cell:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.content-table {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
+    border: 1px solid var(--primary-color);
+    border-radius: 25px;
+    padding: 5px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    color: var(--primary-color);
+    text-decoration: none;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+
+    transition: 100ms linear;
+}
+
+.button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color)
+}
+
+.review {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    gap: 10px;
+}
+
+.navbar {
+    width: 100%;
+    height: 40px;
+
+    background-color: white;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    position: fixed;
+
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav-element {
+    color: var(--secondary-color);
+    transition: 100ms linear;
+    border-radius: 0px;
+
+    border: none;
+
+    margin: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    text-align: center;
+    line-height: 40px;
+
+    height: 100%;
+    text-decoration: none;
+}
+
+.nav-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.nav-element:hover {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    cursor: pointer;
 }
