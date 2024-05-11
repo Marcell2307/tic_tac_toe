@@ -1,6 +1,9 @@
 let table = [];
 let current_turn = 0;
 
+let x_score = 0;
+let o_score = 0;
+
 const get_cell = (id) => {
 	return document.querySelector(`#cell-${id}`);
 };
@@ -78,13 +81,29 @@ const cell_clicked = (id) => {
 		current_turn = !current_turn;
 		set_current_turn_text();
 
+		const modal = document.querySelector("#modal");
+		const winner_text = document.querySelector("#winner-text");
+		const score_counter = document.querySelector("#score-counter");
+
 		if (has_won(1)) {
-			console.log("NYERT AZ X!");
+			winner_text.innerText = "X has won the game!";
+
+			x_score++;
+			
+			modal.showModal();
 		} else if (has_won(2)) {
-			console.log("NYERT A O!");
+			winner_text.innerText = "O has won the game!";
+			
+			o_score++;
+			
+			modal.showModal();
 		} else if (is_draw()) {
-			console.log("DONTETLEN!");
+			winner_text.innerText = "Draw!";
+			
+			modal.showModal();
 		}
+
+		score_counter.innerText = `${x_score} : ${o_score}`;
 	}
 };
 
@@ -99,6 +118,10 @@ const reset_game = () => {
 
 		cell_element.innerText = "";
 	}
+
+	const modal = document.querySelector("#modal");
+
+	modal.close();
 }
 
 const init_table = () => {
