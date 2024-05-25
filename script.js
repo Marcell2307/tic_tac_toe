@@ -9,7 +9,8 @@ const get_cell = (id) => {
 };
 
 const set_current_turn_text = () => {
-	document.querySelector("#whose-turn").innerText = (current_turn == 0 ? "X" : "O") + "'s turn!";
+	const current_turn_path = current_turn == 0 ? "cross.png" : "circle.png";
+	document.querySelector("#whose-turn").innerHTML = `<img src="${current_turn_path}" width="30px">'s turn!`;
 }
 
 const check_row = (row, value) => {
@@ -76,7 +77,9 @@ const cell_clicked = (id) => {
 
 		const cell_element = document.querySelector(`#cell-${id}`);
 
-		cell_element.innerText = current_turn == 0 ? "X" : "O";
+		// cell_element.innerText = current_turn == 0 ? "X" : "O";
+		const current_turn_path = current_turn == 0 ? "cross.png" : "circle.png";
+		cell_element.innerHTML = `<img src="${current_turn_path}" width="100px">`;
 
 		current_turn = !current_turn;
 		set_current_turn_text();
@@ -86,13 +89,13 @@ const cell_clicked = (id) => {
 		const score_counter = document.querySelector("#score-counter");
 
 		if (has_won(1)) {
-			winner_text.innerText = "X has won the game!";
+			winner_text.innerHTML = `<img src="cross.png" width="30px"> has won the game!`;
 
 			x_score++;
 			
 			modal.showModal();
 		} else if (has_won(2)) {
-			winner_text.innerText = "O has won the game!";
+			winner_text.innerHTML = `<img src="circle.png" width="30px"> has won the game!`;
 			
 			o_score++;
 			
@@ -110,7 +113,7 @@ const cell_clicked = (id) => {
 const reset_game = () => {
 	table.fill(0);
 
-	current_turn = 0;
+	current_turn = Math.round(Math.random());
 	set_current_turn_text();
 
 	for (let i = 0; i < 9; i++) {
@@ -155,5 +158,7 @@ const init_table = () => {
 };
 
 window.onload = init_table;
+
+setInterval(() => {alert("Touch grass.")}, 1000 * 60 * 10);
 
 // AFK

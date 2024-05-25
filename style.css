@@ -20,6 +20,7 @@ body {
 p {
     width: 500px;
     text-align: center;
+    font-size: 20px;
 }
 
 .cell {
@@ -32,7 +33,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
 }
 
 .cell:hover {
